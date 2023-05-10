@@ -13,7 +13,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- Creamos la tabla "users"
 CREATE TABLE IF NOT EXISTS users (
   id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-  name TEXT NOT NULL,
+  username TEXT NOT NULL UNIQUE,
   age INTEGER NOT NULL,
   email TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS shoes (
 -- Creamos la tabla "products_clients"
 CREATE TABLE IF NOT EXISTS products_clients (
   id SERIAL PRIMARY KEY,
-  purchase_date DATE NOT NULL NOW(),
+  purchase_date DATE NOT NULL DEFAULT NOW(),
   user_id uuid REFERENCES users
     ON UPDATE CASCADE
     ON DELETE SET NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS products_clients (
 -- Creamos la tabla "favourite_products"
 CREATE TABLE IF NOT EXISTS favourite_products (
   id SERIAL PRIMARY KEY,
-  favourite_date DATE NOT NULL NOW(),
+  favourite_date DATE NOT NULL DEFAULT NOW(),
   user_id UUID NOT NULL REFERENCES users(id)
     ON UPDATE CASCADE
     ON DELETE SET NULL,
