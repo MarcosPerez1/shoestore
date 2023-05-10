@@ -1,7 +1,8 @@
+require ("dotenv").config()
 const express=require("express")
 const db=require("./configs/db")
 const app= express()
-require ("dotenv").config()
+const errors =require("./misc/errors")
 
 app.use(express.json());
 
@@ -25,5 +26,5 @@ app.use(({statusCode, error}, req,res,next)=>{
 })
 
 
-app.listen(process.env.PORT, ()=> console.info(`>listening at ${process.env.PORT}`))
+app.listen(process.env.PORT, ()=> console.info(`>listening at: ${process.env.PORT}`))
 
