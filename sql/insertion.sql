@@ -1,36 +1,19 @@
 -- INSERCCIONES DE LA TABLA USERS
-INSERT INTO users (
-  name,age,email,password,address,city
-) VALUES (
-  'Pedro Ebrio',45, 'soypedroebrio@soypedro.com','12345','calle recoletos 15','Madrid'
-);
 
 INSERT INTO users (
-  name,age,email,password,address,city
-) VALUES (
-  'Manuel Perez', 38, 'soymanuel@soymanuel.com','12345','calle lepanto 8','Murcia'
-);
-
-INSERT INTO users (
-  name,age,email,password,address,city
-) VALUES (
-  'Federico Lorca', 45, 'soyelfede@soypedro.com','4523325fds','calle juan de la cierva 11','Sevilla'
-);
-
-INSERT INTO users (
-  name,age,email,password,address,city
+  username,age,email,password,address,city
 ) VALUES (
   'Alfonso Gutierrez', 26, 'soyalfonso@hotmail.com','nodwcno4345','calle alfonso xiii','Oviedo'
 );
 
 INSERT INTO users (
-  name,age,email,password,address,city
+  username,age,email,password,address,city
 ) VALUES (
   'Maria García', 35, 'mariagarcia@hotmail.com','mipasswors','avenida 456','Malaga'
 );
 
 INSERT INTO users (
-  name,age,email,password,address,city
+  username,age,email,password,address,city
 ) VALUES (
   'Patricia Diaz', 88, 'soylapatri@hotmail.com','noefdwcno4345','calle carreras 9','Sevilla'
 );
