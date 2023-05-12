@@ -5,6 +5,7 @@ const userRouter=require("./users")
 
 module.exports=(db)=>{
     router.use("/auth",authRouter(db))
-    router.use("/users",userRouter())
+    router.use("/users",userRouter(db))
+
     return router
 }

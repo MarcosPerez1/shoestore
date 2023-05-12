@@ -1,6 +1,22 @@
-const {sql}=require("slonik")
+const {getAllUsers}=require("./queries")
 
-const getAllUsers = () =>sql.unsafe`
-SELECT *
-FROM users
-`
+const allUsers = (db) =>async ()=>{
+    try {
+        const response = await db.query(getAllUsers())
+
+        return{
+            ok:true,
+            response:response.rows
+        }
+
+    } catch (error) {
+        return{
+            ok:false,
+            message:error.message
+        }
+    }
+}
+
+module.exports={
+    allUsers
+}

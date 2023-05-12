@@ -2,9 +2,13 @@ const router=require("express").Router()
 
 const {authorizer}=require("../middlewares")
 
-const userControllers =require("../controllers/users")
+const {allUsers,getUser} =require("../controllers/users")
 
-module.exports=()=>{
-    router.get("/",authorizer, userControllers.getUser())
+
+module.exports=(db)=>{
+
+    router.get("/",authorizer,getUser())
+    router.get("/all",allUsers(db))
+
     return router
 }
