@@ -1,4 +1,4 @@
-const { allShoes, shoeByBrand, searchSize, sizeRange, addShoe ,changeShoe  } = require("./queries")
+const { allShoes, shoeByBrand, searchSize, sizeRange, addShoe ,changeShoe,deleteShoe  } = require("./queries")
 
 
 const getAll = (db) => async () => {
@@ -103,6 +103,23 @@ const modifyShoe =(db)=>async (id,brand,size,color,model)=>{
     }
 }
 
+const eraseShoe=(db)=>async (id)=>{
+    try {
+        const response = await db.query(deleteShoe(id))
+        return {
+            ok: true,
+            response: response.rows
+        }
+    } catch (error) {
+
+        return {
+            ok: false,
+            message: error.message
+        }
+
+    }
+}
+
 
 module.exports = {
     getAll,
@@ -110,5 +127,6 @@ module.exports = {
     shoeSize,
     sizeShoeRange,
     newShoe,
-    modifyShoe
+    modifyShoe,
+    eraseShoe
 }

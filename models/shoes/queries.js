@@ -29,12 +29,16 @@ UPDATE shoes
 SET brand=${brand},size=${size},color=${color},model=${model}
 WHERE id=${id}
 `
-
+const deleteShoe = (id)=>sql.unsafe`
+DELETE FROM shoes
+WHERE id=${id}
+`
 module.exports={
     allShoes,
     shoeByBrand,
     searchSize,
     sizeRange,
     addShoe,
-    changeShoe
+    changeShoe,
+    deleteShoe
 }

@@ -93,3 +93,16 @@ services:
                 })
                 }
 
+5.CRUD.
+    5.1.(GET)Haremos el crud para la tabla shoes, para poder modificar los datos que necesitemos, comenzamos con el get, en el cual deberemos hacer la consulta de la bbdd para traernos toda la informacion que necesitemos agregaremos un ruta para esto, por norma general el get/all para ver todos los productos deberá ir a ruta /, nosotros se lo hemos encomendado a la ruta /all.
+    
+    5.2.A continuacion nos traeremos el producto a traves del id, entonces deberemos diseñar la consulta sql de nuevo para sacar los artículos a través del identificador único, por lo tanto en el controlador deberemos de captar el req.params.id , ya que cuando queramos ir hacia un artículo en concreto deberemos especificar el id en la ruta.
+
+    5.3.Diseñaramos búsquedas para obtener artículos mediante unos "filtros" , de nuevo, empezaremos por hacer la consulta a la bbdd y y lo demas sigue de la misma manera el único cambio es que captaremos el req.query y de ahi desestructuraremos lo que queramos obtener en este caso la talla.
+
+    5.4.En este punto crearemos un nueva zapatilla mediante el metodo post tendremos en cuenta como siempre la consulta a la bbdd, haremos el controlador específico para la ruta /new, que consistira en enviar el req.body con todos los values que vayamos a crear.
+
+    5.5.También vamos a modificar los datos una vez creados, este procedimiento es el mismo que el anterior pero tomaremos tambien id a través del req.params.id y con la ruta /:id enviaremos un petición put, con los campos que tiene la fila y modificaremos los que creamos convenientes.
+
+    5.6.Por último crearemos el endpoint de delete, por el cual simplemente haremos la consulta a la bbdd y a traves del req.params.id y mediante el metodo delete captaremos ese elemento de la tabla que queramos eliminar.
+

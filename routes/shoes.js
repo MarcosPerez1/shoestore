@@ -2,7 +2,7 @@ const router=require("express").Router()
 
 const {authorizer}=require("../middlewares")
 
-const {allShoes,shoeXbrand,shoeXsize,sizeRange,addShoe,putShoe} =require("../controllers/shoes")
+const {allShoes,shoeXbrand,shoeXsize,sizeRange,addShoe,putShoe,deleteShoe} =require("../controllers/shoes")
 
 
 module.exports=(db)=>{ 
@@ -12,6 +12,7 @@ module.exports=(db)=>{
     router.get("/size",shoeXsize(db))
     router.get("/:brand",shoeXbrand(db))
     router.put("/:id",putShoe(db))
+    router.delete("/:id",deleteShoe(db))
 
     return router
 }

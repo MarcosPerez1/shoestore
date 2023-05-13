@@ -4,5 +4,6 @@ module.exports={
     shoeXsize:require("./shoe-size"),
     sizeRange:require("./size-shoe-range"),
     addShoe:require("./add-new-shoe"),
-    putShoe:require("./udpate-shoe")
+    putShoe:require("./udpate-shoe"),
+    deleteShoe:require("./delete-shoe")
 }
