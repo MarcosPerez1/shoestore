@@ -1,4 +1,4 @@
-const { allShoes, shoeByBrand, searchSize} = require("./queries")
+const { allShoes, shoeByBrand, searchSize, sizeRange, addShoe ,changeShoe  } = require("./queries")
 
 
 const getAll = (db) => async () => {
@@ -52,9 +52,63 @@ const shoeSize = (db)=> async (size)=>{
     }
 }
 
+const sizeShoeRange = (db)=> async (minSize, maxSize)=>{
+    try {
+        const response = await db.query(sizeRange(minSize, maxSize))
+        return {
+            ok: true,
+            response: response.rows
+        }
+    } catch (error) {
+
+        return {
+            ok: false,
+            message: error.message
+        }
+
+    }
+}
+
+const newShoe =(db)=>async ({brand,size,color,model})=>{
+    try {
+        const response = await db.query(addShoe(brand,size,color,model))
+        return {
+            ok: true,
+            response: response.rows
+        }
+    } catch (error) {
+
+        return {
+            ok: false,
+            message: error.message
+        }
+
+    }
+}
+
+const modifyShoe =(db)=>async (id,brand,size,color,model)=>{
+    try {
+        const response = await db.query(changeShoe(id,brand,size,color,model))
+        return {
+            ok: true,
+            response: response.rows
+        }
+    } catch (error) {
+
+        return {
+            ok: false,
+            message: error.message
+        }
+
+    }
+}
+
 
 module.exports = {
     getAll,
     shoesBrand,
-    shoeSize
+    shoeSize,
+    sizeShoeRange,
+    newShoe,
+    modifyShoe
 }
