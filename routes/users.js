@@ -8,7 +8,7 @@ const {allUsers,getUser} =require("../controllers/users")
 module.exports=(db)=>{
 
     router.get("/",authorizer,getUser())
-    router.get("/all",allUsers(db))
+    router.get("/all",authorizer,allUsers(db))
 
     return router
 }

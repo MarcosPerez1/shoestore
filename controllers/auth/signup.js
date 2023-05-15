@@ -4,6 +4,8 @@ const { createUser } = require("../../models/auth")
 
 const errors = require("../../misc/errors")
 
+const nodemailer=require("../../middlewares/nodemailer")
+
 module.exports = (db) => async (req, res, next) => {
 
     const { username, age, password, email, address, city } = req.body
@@ -15,6 +17,8 @@ module.exports = (db) => async (req, res, next) => {
     const response = await createUser(await db)(username, encrypted, address, age, city, email)
 
     if (!response.ok) return next(errors[500])
+
+    nodemailer({email})
 
     res.status(200).json({
         success: true,

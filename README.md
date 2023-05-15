@@ -106,3 +106,7 @@ services:
 
     5.6.Por último crearemos el endpoint de delete, por el cual simplemente haremos la consulta a la bbdd y a traves del req.params.id y mediante el metodo delete captaremos ese elemento de la tabla que queramos eliminar.
 
+6.NodeMailer.
+    Nodemailer es una biblioteca de javascript por la cual podemos enviar correos a través de nuestra aplicacion con Node.js.
+    Tendremos que instalar el paquete con el comando npm i nodemailer, tendremos que poner un script que nos proporciona la misma documentación del paquete, en el cual vamos definir desde donde vamos a enviar el correo y para quien o quienes, según configuremos en este script, tendremos que poner nuestro correo y contraseña pero meterlo en la carpete ae variables de entorno, para que no puedan ser visto desde fuera, por ultimo colocaremos la ejecución del script en el script de sign up para que cada vez que hagamos un nuevo registro podemos mandar este correo de confirmación, como que hemos completado el registro satisfactorimente, teniendo en cuenta el mismo email de registro.
+        
